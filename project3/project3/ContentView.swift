@@ -26,45 +26,90 @@ struct ContentView: View {
                     LinearGradient(gradient: .init(colors: [.blue,.black]), startPoint: .top, endPoint: .center)
                         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     ScrollView{
-                    VStack{
-                        AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
-                        }, placeholder: {
-                            ProgressView()
-                        })
-                        VStack(alignment: .leading){
-                            Text("Icarolindogostoso").foregroundColor(Color.white).font(.largeTitle).bold()
-                            
-                            HStack{
-                                AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 20, height: 20)
+                        VStack{
+                            VStack{
+                                AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
                                 }, placeholder: {
                                     ProgressView()
                                 })
-                                Text("icarolindogostoso").foregroundColor(Color.white)
-                            }
-                            
-                            ForEach(arrayMusicas, id: \.self) { e in
-                                let urlfoto = URL(string: e.capa)
-                                HStack{
-                                    NavigationLink(destination: merda()){
-                                        AsyncImage(url: urlfoto, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 50, height: 50)
+                                VStack(alignment: .leading){
+                                    Text("Icarolindogostoso").foregroundColor(Color.white).font(.largeTitle).bold()
+                                    
+                                    HStack{
+                                        AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 20, height: 20)
                                         }, placeholder: {
                                             ProgressView()
                                         })
-                                        
-                                        VStack(alignment: .leading){
-                                            Text(e.name)
-                                                .foregroundColor(Color.white)
-                                            Text(e.artist).foregroundColor(.white).font(.caption)
-                                        }
-                                        Spacer()
-                                        Image(systemName: "ellipsis")
-                                            .foregroundColor(Color.white)
+                                        Text("icarolindogostoso").foregroundColor(Color.white)
                                     }
+                                    
+                                    ForEach(arrayMusicas, id: \.self) { e in
+                                        let urlfoto = URL(string: e.capa)
+                                        HStack{
+                                            NavigationLink(destination: merda()){
+                                                AsyncImage(url: urlfoto, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 50, height: 50)
+                                                }, placeholder: {
+                                                    ProgressView()
+                                                })
+                                                
+                                                VStack(alignment: .leading){
+                                                    Text(e.name)
+                                                        .foregroundColor(Color.white)
+                                                    Text(e.artist).foregroundColor(.white).font(.caption)
+                                                }
+                                                Spacer()
+                                                Image(systemName: "ellipsis")
+                                                    .foregroundColor(Color.white)
+                                            }
+                                        }
+                                    }.padding(.vertical, 5)
                                 }
-                            }.padding(.vertical, 5)
+                            }.padding(15)
+                            VStack(alignment: .leading){
+                                Text("Sugeridos")
+                                    .foregroundColor(Color.white).font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                                ScrollView(.horizontal, showsIndicators: false, content: {
+                                    HStack{
+                                        VStack{
+                                            AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            Text("1 - merda")
+                                                .foregroundColor(Color.white)
+                                        }
+                                        VStack{
+                                            AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            Text("2 - merda").foregroundColor(Color.white)
+                                        }
+                                        VStack{
+                                            AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            Text("3 - merda").foregroundColor(Color.white)
+                                        }
+                                        VStack{
+                                            AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            Text("4 - merda").foregroundColor(Color.white)
+                                        }
+                                        VStack{
+                                            AsyncImage(url: url, content: { returnedImage in returnedImage.resizable().scaledToFill().frame(width: 200, height: 200)
+                                            }, placeholder: {
+                                                ProgressView()
+                                            })
+                                            Text("5 - merda").foregroundColor(Color.white)
+                                        }
+                                    }
+                                })
+                            }
                         }
-                    }
-                    .padding(15)
                 }
             }
         }
