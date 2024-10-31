@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct quarto: View {
+    @State var recebe : String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("fundo").ignoresSafeArea()
+            VStack{
+                Text("Va cagar, \(recebe)").font(.largeTitle).foregroundColor(Color.white)
+            }.frame(width: 300,height: 250)
+                .background(Color.red)
+                .cornerRadius(10.0)
+        }
     }
 }
 
