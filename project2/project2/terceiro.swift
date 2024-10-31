@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct terceiro: View {
-    @State private var text: String = ""
+    @State var text: String = ""
     var body: some View {
         NavigationStack{
             ZStack{
@@ -20,7 +20,7 @@ struct terceiro: View {
                     VStack{
                         TextField("Digite seu nome aqui", text: $text).textFieldStyle(RoundedBorderTextFieldStyle()).padding().multilineTextAlignment(.center)
                         Text("Bem vindo, \(text)").font(.largeTitle).foregroundColor(Color.white)
-                        NavigationLink(destination: quarto()){
+                        NavigationLink(destination: quarto(recebe: text)){
                             Text("naosei").foregroundColor(Color.white).frame(width: 150, height: 50).background(Color.blue).cornerRadius(10.0)
                         }
                     }.frame(width: 300,height: 250)
