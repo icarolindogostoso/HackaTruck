@@ -20,7 +20,7 @@ struct ContentView: View {
     
     @State var valor = false
     
-    @State var auxiliar : URL
+    @State var auxiliar = Location(name: "Pompeia", coordinate: CLLocationCoordinate2D(latitude: -5.748836, longitude:-35.240719), flag: "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/04/25/1910058658-ghostrider-nicolascage.jpg", description: "O lugar mais divertido de natal rn")
     
     @State private var positiones = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: -5.748836, longitude: -35.240719), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)))
     
@@ -39,21 +39,23 @@ struct ContentView: View {
                             .frame(width: 50,height: 50)
                             .foregroundColor(Color.red)
                             .onTapGesture {
+                                auxiliar = position
+                                
                                 valor.toggle()
                             }
                     }
                 }
             }.sheet(isPresented: $valor){
                 VStack{
-                    Text(position.name)
-                    AsyncImage(url: auxiliar, content: { returnedImage in returnedImage
+                    Text(auxiliar.name)
+                    AsyncImage(url: URL(string:auxiliar.flag), content: { returnedImage in returnedImage
                             .resizable()
                             .scaledToFill()
                             .frame(width: 90, height: 90)
                     }, placeholder: {
                         ProgressView()
                     })
-                    Text(position.description)
+                    Text(auxiliar.description)
                 }
             }
             
