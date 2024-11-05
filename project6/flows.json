@@ -1,0 +1,19 @@
+[
+    {
+        "id": "92bad2ab44752d31",
+        "type": "http in",
+        "z": "5743edd4b2dab85c",
+        "name": "",
+        "url": "/postIcro",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 120,
+        "wires": [
+            [
+                "25d9914eb8676b1a"
+            ]
+        ]
+    }
+]
